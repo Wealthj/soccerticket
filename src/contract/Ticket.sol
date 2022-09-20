@@ -16,7 +16,7 @@ interface IERC20Token {
 
 contract  Ticketon {
 
-    //Variable used as the index to store all artworks
+    //Variable used as the index to store all tickets
     uint internal ticketsLength = 0;
 
     //Address of the cUSD erc-20 token
@@ -32,10 +32,10 @@ contract  Ticketon {
         bool forSale;  
     }
 
-    //Event that will emit when a new art is uploaded
+    //Event that will emit when a new ticket is uploaded
     event newTick(address indexed owner, uint index);
 
-    //Even that will emit when an art is bought
+    //Even that will emit when a ticket is bought
     event ticketBought(address indexed seller, uint index, uint price, address indexed buyer);
 
     //Mapping that assigns index to all tickets

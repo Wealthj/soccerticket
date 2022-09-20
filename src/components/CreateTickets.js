@@ -2,27 +2,25 @@ import React from 'react'
 
 import { useState } from "react";
 
-const CreateEvents = (props) => {
+const CreateTickets = (props) => {
 const [image, setImage] = useState('');
- const [theme, setTheme] = useState('');
- const [date, setDate] = useState('');
- const [location, setLocation] = useState('');
+ const [fixture, setFixture] = useState('');
+ const [venue, setVenue] = useState('');
  const [price, setPrice] = useState();
 
  const submitHandler = (e) => {
     e.preventDefault();
 
-    if(!image || !theme || !date || !location || !price) {
+    if(!image || !fixture || !venue || !price) {
         alert('Please fill up the form')
         return
 
     }
-    props.CreateEvent(image, theme, date, location, price);
+    props.CreateEvent(image, fixture, venue, price);
     
     setImage('')
-    setTheme('')
-    setDate('')
-    setLocation('')
+    setFixture('')
+    setVenue('')
     setPrice('')
 };
 
@@ -33,24 +31,23 @@ return(
         <input type="text" class="form-control" value={image}
              onChange={(e) => setImage(e.target.value)} placeholder="Image"/>
 
-<input type="text" class="form-control mt-4" value={theme}
-           onChange={(e) => setTheme(e.target.value)} placeholder="Theme of Event"/>
+<input type="text" class="form-control mt-4" value={fixture}
+           onChange={(e) => setFixture(e.target.value)} placeholder="Match fixture"/>
 
-<input type="text" class="form-control mt-4" value={date}
-           onChange={(e) => setDate(e.target.value)} placeholder="Date of Event"/>
+<input type="text" class="form-control mt-4" value={venue}
+           onChange={(e) => setVenue(e.target.value)} placeholder="Match Venue"/>
 
-<input type="text" class="form-control mt-4" value={location}
-           onChange={(e) => setLocation(e.target.value)} placeholder="Location of Event"/>
+ 
 
 <input type="text" class="form-control mt-4" value={price}
-           onChange={(e) => setPrice(e.target.value)} placeholder="price"/>
+           onChange={(e) => setPrice(e.target.value)} placeholder="Ticket price"/>
 
-<button type="submit" class="btn btn-outline-dark lk">Create Event</button>
+<button type="submit" class="btn btn-outline-dark lk">Create Ticket</button>
 
 </div>
 </form>
   
 )
 }
-export default  CreateEvents;
+export default  CreateTickets;
    

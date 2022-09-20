@@ -156,7 +156,7 @@ function App() {
 				buyTicket={buyTicket}
 				UpdateTicketPrice={UpdateTicketPrice}
 			/>
-			<CreateTickets CreateTickets={CreateTickets} />
+			<CreateTickets CreateTicket={CreateTicket} />
 		</div>
 	);
 }
