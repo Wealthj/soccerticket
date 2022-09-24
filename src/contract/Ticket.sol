@@ -28,7 +28,6 @@ contract  Ticketon {
         string fixture;
         string venue;
         uint price;
-        
         bool forSale;  
     }
 
@@ -72,8 +71,7 @@ contract  Ticketon {
         string memory, 
         string memory, 
         string memory, 
-        uint
-        
+        uint     
     ) {
         return (
             tickets[_index].owner,
@@ -81,7 +79,6 @@ contract  Ticketon {
             tickets[_index].fixture,  
             tickets[_index].venue,
             tickets[_index].price
-            
         );
     }
 
@@ -108,12 +105,14 @@ contract  Ticketon {
         );
 
          tickets[_index].owner = payable(msg.sender);
-
         emit ticketBought(tickets[_index].owner, _index, tickets[_index].price, msg.sender);
          
     }
- 
-    
+
+    function toggleForSale(uint _index) public onlyOwner(_index){
+        tickets[_index].forSale = !tickets[_index].forSale;
+    }
+
 
     //Function that returns the total number of ticket 
     function getticketsLength() public view returns (uint) {
