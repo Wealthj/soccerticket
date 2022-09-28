@@ -16,7 +16,7 @@ const [image, setImage] = useState('');
         return
 
     }
-    props.CreateEvent(image, fixture, venue, price);
+    props.CreateTicket(image, fixture, venue, price);
     
     setImage('')
     setFixture('')

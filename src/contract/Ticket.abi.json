@@ -1,5 +1,55 @@
 [
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "newTick",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "seller",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "buyer",
+				"type": "address"
+			}
+		],
+		"name": "ticketBought",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -7,7 +57,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "buyEvent",
+		"name": "buyTicket",
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
@@ -18,118 +68,34 @@
 				"internalType": "uint256",
 				"name": "_index",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_price",
-				"type": "uint256"
 			}
 		],
-		"name": "changePrice",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_image",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_theme",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_date",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_location",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_price",
-				"type": "uint256"
-			}
-		],
-		"name": "createEvent",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_index",
-				"type": "uint256"
-			}
-		],
-		"name": "followEvent",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_index",
-				"type": "uint256"
-			}
-		],
-		"name": "getEvent",
+		"name": "getTicket",
 		"outputs": [
 			{
 				"internalType": "address payable",
-				"name": "owner",
+				"name": "",
 				"type": "address"
 			},
 			{
 				"internalType": "string",
-				"name": "image",
+				"name": "",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "theme",
+				"name": "",
 				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "date",
-				"type": "uint256"
 			},
 			{
 				"internalType": "string",
-				"name": "location",
+				"name": "",
 				"type": "string"
 			},
 			{
 				"internalType": "uint256",
-				"name": "follow",
+				"name": "",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "sale",
-				"type": "bool"
-			},
-			{
-				"internalType": "bool",
-				"name": "hasFollowed",
-				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -137,7 +103,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "getEventsLength",
+		"name": "getticketsLength",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -151,12 +117,27 @@
 	{
 		"inputs": [
 			{
+				"internalType": "string",
+				"name": "_image",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_fixture",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_venue",
+				"type": "string"
+			},
+			{
 				"internalType": "uint256",
-				"name": "_index",
+				"name": "_price",
 				"type": "uint256"
 			}
 		],
-		"name": "toggleSale",
+		"name": "newTicket",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -169,7 +150,25 @@
 				"type": "uint256"
 			}
 		],
-		"name": "unfollowEvent",
+		"name": "toggleSaleStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "updateTicketCost",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

@@ -5,7 +5,7 @@ const Navbar = (props) => {
   return (
     <header>
 
-    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-light">
 
       <div className="container-fluid">
 
@@ -21,7 +21,7 @@ const Navbar = (props) => {
 
           
 
-            <button className="btn btn-outline-success" type="submit">Balance: {props.balance} </button>
+            <button className="btn btn-outline-success jed" type="submit">Balance: {props.balance} </button>
 
         </div>
 

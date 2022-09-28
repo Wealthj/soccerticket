@@ -2,15 +2,23 @@
  
 .form-row{
   width: 650px;
+  padding-top: 75px;
+}
+.navbar-brand{
+  background: #000;
+}
+.jed{
+  position: absolute;
+  left: 650px;
 }
 
  
  
  .lk{
    position: absolute;
-   padding-top: 100px;
+   left: 250px;
+
  }
  .container{
   margin-top: 110px !important;
  }
-  

@@ -13,7 +13,7 @@ import Tickets from "./components/Tickets";
 
 const ERC20_DECIMALS = 18;
 
-const contractAddress = "0x25C62277Febf5Bd42408c19970a49166a83e0Aa0";
+const contractAddress = "0xdE80af6683c8291ccb10BDEA0Ffc6e16b5558854";
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1";
 
 function App() {
@@ -92,8 +92,8 @@ function App() {
 					image: ticket[1],
 					fixture: ticket[2],
 					venue: ticket[3],
-					price: ticket[6]
-					 
+					price: ticket[4],
+					forSale:ticket[5]
 				});
 			});
 			_tickk.push(_tickets);
@@ -127,6 +127,15 @@ function App() {
 		 alert("The Ticket price has succesfully been updated")
 		}};
 	  
+		const toggleSaleStatus = async (_index) => {
+			try {
+			  await contract.methods.toggleSaleStatus(_index).send({ from: address });
+			  getTickets();
+			  getBalance();
+			} catch (error) {
+			  console.log(error);
+			}};
+		
 
 	 
  
@@ -149,16 +158,25 @@ function App() {
 	};
 
 	return (
-		<div>
-			<Navbar balance={cUSDBalance} />
-			<Tickets
-				tickets={tickets}
-				buyTicket={buyTicket}
-				UpdateTicketPrice={UpdateTicketPrice}
-			/>
-			<CreateTickets CreateTicket={CreateTicket} />
-		</div>
-	);
+		<>
+		{address && kit ? (
+			<div>
+				<Navbar balance={cUSDBalance} />
+
+				<Tickets
+					tickets={tickets}
+					buyTicket={buyTicket}
+					toggleSaleStatus={toggleSaleStatus}
+					UpdateTicketPrice={UpdateTicketPrice}
+					address={address}
+				/>
+				<CreateTickets CreateTicket={CreateTicket} />
+			</div>
+		) : (
+			""
+		)}
+	</>
+);
 }
 
 export default App;
