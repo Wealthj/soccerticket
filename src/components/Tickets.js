@@ -55,8 +55,8 @@ const Tickets = (props) => {
                         onClick={() => props.toggleSaleStatus(t.index)}
                       >
                         {t.forSale
-                          ? "Make Ticket Not For Sale"
-                          : "Make Ticket Available for sale"}
+                          ? "Toggle Ticket Not For Sale"
+                          : "Toggle Ticket Available for sale"}
                       </button>
                     )}
  </div>

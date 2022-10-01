@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Montserrat:wght@100&family=Ubuntu:wght@300&display=swap');
+*{
+  background-color:#dbe5e6;
+}
  
 .form-row{
   width: 650px;
@@ -20,5 +23,6 @@
 
  }
  .container{
-  margin-top: 110px !important;
+  padding-top: 150px;
+
  }

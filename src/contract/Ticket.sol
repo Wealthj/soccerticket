@@ -105,7 +105,8 @@ contract Ticketon {
             string memory,
             string memory,
             string memory,
-            uint256
+            uint256,
+            bool
         )
     {
         return (
@@ -113,7 +114,8 @@ contract Ticketon {
             tickets[_index].image,
             tickets[_index].fixture,
             tickets[_index].venue,
-            tickets[_index].price
+            tickets[_index].price,
+             tickets[_index].forSale
         );
     }
 

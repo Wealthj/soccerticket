@@ -13,7 +13,7 @@ import Tickets from "./components/Tickets";
 
 const ERC20_DECIMALS = 18;
 
-const contractAddress = "0xdE80af6683c8291ccb10BDEA0Ffc6e16b5558854";
+const contractAddress = "0xDAdE3A9E28Ee7a5EE8628F291cB4146f14F88a85";
 const cUSDContractAddress = "0x874069Fa1Eb16D44d622F2e0Ca25eeA172369bC1";
 
 function App() {
@@ -93,14 +93,14 @@ function App() {
 					fixture: ticket[2],
 					venue: ticket[3],
 					price: ticket[4],
-					forSale:ticket[5]
+					forSale: ticket[5]
 				});
 			});
 			_tickk.push(_tickets);
 		}
 		const _tickets = await Promise.all(_tickk);
 		setTickets(_tickets);
-		console.log(tickets);
+		
 	};
 
 	const CreateTicket = async (_image, _fixture, _venue, price) => {
@@ -117,9 +117,12 @@ function App() {
 		}
 	};
 	const UpdateTicketPrice = async (_index, _newPrice) => {
+		const newPrice = new BigNumber(_newPrice).shiftedBy(ERC20_DECIMALS).toString();
 		console.log(_index);
+
+		
 		try {
-		  await contract.methods.updateTicketCost(_index, _newPrice).send({ from: address });
+		  await contract.methods.updateTicketCost(_index, newPrice).send({ from: address });
 		  getTickets();
 		  getBalance();
 		} catch (error) {
